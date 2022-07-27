@@ -74,9 +74,10 @@ class FileRecord {
   ): FileRecord | Promise<FileRecord> {
     const fileRecord = new FileRecord(rawFileRecord, options);
     const promise = fileRecord.setUrl(rawFileRecord.url as string);
-    rawFileRecord.progress = fileRecord.progress.bind(fileRecord); // convert it as a function
-    rawFileRecord.src = fileRecord.src.bind(fileRecord);
-    rawFileRecord.name = fileRecord.name.bind(fileRecord); // convert it as a function
+    // rawFileRecord.progress = fileRecord.progress.bind(fileRecord); // convert it as a function
+    // rawFileRecord.src = fileRecord.src.bind(fileRecord);
+    // rawFileRecord.name = fileRecord.name.bind(fileRecord); // convert it as a function
+    console.log('test')
     if (isSync) {
       return fileRecord;
     }

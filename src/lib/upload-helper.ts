@@ -253,7 +253,7 @@ class UploadHelper {
         fileRecord.xhrQueue = () => {
           this.updateUpload(url, headers, fileRecord, uploadData);
         };
-        return resolve();
+        return resolve(true);
       }
       if (uploadData === undefined) {
         uploadData = fileRecord.upload.data || {};
@@ -386,7 +386,7 @@ class UploadHelper {
         return reject('tus required');
       }
       if (!fileRecord.tusUpload) {
-        return resolve();
+        return resolve(true);
       }
       // const shouldTerminate = true;
       const abort = (shouldTerminate: boolean) => {
@@ -397,7 +397,7 @@ class UploadHelper {
               rej(err);
               return;
             }
-            res();
+            res(true);
           });
         });
       };

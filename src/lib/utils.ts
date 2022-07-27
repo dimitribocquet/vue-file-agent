@@ -354,6 +354,7 @@ class Utils {
       if (!(file instanceof File)) {
         return reject('Invalid file object. Use url or a valid instance of File class');
       }
+      // @ts-ignore
       if (createObjectURL && revokeObjectURL) {
         shouldRevoke = true;
         image.src = createObjectURL(file);
